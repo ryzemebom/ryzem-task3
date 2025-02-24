@@ -1,10 +1,11 @@
 <head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" type="imagex/png" href="logo-ryzem_task.ico">
+    <link rel="shortcut icon" type="image/png" href="logo-ryzem_task.ico">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Organizador de Tarefas</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
 </head>
 <body>
     <div class="container">
@@ -13,7 +14,12 @@
         </div>
 
         <h1>Organizador de Tarefas</h1>
-        
+
+<div id="loadingSpinner" class="loading-spinner" style="display: none;">
+    <i class="fas fa-spinner fa-spin"></i> Carregando...
+</div>
+
+
         <input type="text" id="taskInput" class="task-input" placeholder="Adicione uma tarefa" />
         <button class="add-task-button" onclick="addTask()">Adicionar</button>
         <div class="contaienr2">
