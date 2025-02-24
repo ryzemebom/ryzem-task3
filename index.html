@@ -15,10 +15,11 @@
 
         <h1>Organizador de Tarefas</h1>
 
-<div id="loadingSpinner" class="loading-spinner" style="display: none;">
-    <i class="fas fa-spinner fa-spin"></i> Carregando...
-</div>
-
+        <div class="loading-spinner" id="loadingSpinner" style="display: none;">
+            <div class="spinner"></div>
+            <p class="text">Carregando...</p>
+        </div>
+        
 
         <input type="text" id="taskInput" class="task-input" placeholder="Adicione uma tarefa" />
         <button class="add-task-button" onclick="addTask()">Adicionar</button>
