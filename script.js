@@ -54,7 +54,9 @@ function loadTasks() {
 function editTask(index) {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const taskText = tasks[index].text;
-    document.getElementById('taskInput').value = taskText; 
+
+    document.getElementById('taskInput').value = taskText;
+    document.getElementById('taskInput').focus();
     editingIndex = index; 
     document.querySelector('.add-task-button').textContent = 'Atualizar';
 }
