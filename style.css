@@ -178,6 +178,6 @@ li button {
     }
 
     button.complete, button.remove, button.edit {
-        width: 18%;
+        width: 30%;
     }
 }
