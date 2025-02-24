@@ -8,11 +8,11 @@ function loadTasks() {
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
         
-
         if (editingIndex === index) {
             const editInput = document.createElement('input');
             editInput.value = task.text;
             editInput.classList.add('edit-input');
+            editInput.focus();
             editInput.addEventListener('keydown', (event) => {
                 if (event.key === 'Enter') {
                     saveTask(index, editInput.value);
@@ -20,16 +20,16 @@ function loadTasks() {
             });
 
             li.appendChild(editInput);
+
+
             const saveButton = document.createElement('button');
             saveButton.classList.add('save');
             const updateIcon = document.createElement('i');
             updateIcon.classList.add('fas', 'fa-sync-alt');
             saveButton.appendChild(updateIcon); 
-            saveButton.appendChild(document.createTextNode(''));
-            
             saveButton.onclick = () => saveTask(index, editInput.value);
             li.appendChild(saveButton);
-            
+
         } else {
             const taskTextContainer = document.createElement('div');
             taskTextContainer.classList.add('task-text');
@@ -39,55 +39,72 @@ function loadTasks() {
                 li.classList.add('completed');
             }
 
-            // Botão de conclusão
             const completeButton = document.createElement('button');
             const completeIcon = document.createElement('i');
             completeIcon.classList.add('fas', task.completed ? 'fa-times' : 'fa-check');
             completeButton.appendChild(completeIcon);
-            completeButton.classList.add('complete'); 
+            completeButton.classList.add('complete');
             completeButton.onclick = () => toggleCompletion(index);
 
-            // Botão de remoção
             const deleteButton = document.createElement('button');
             const deleteIcon = document.createElement('i');
-            deleteIcon.classList.add('fas', 'fa-trash'); 
+            deleteIcon.classList.add('fas', 'fa-trash');
             deleteButton.appendChild(deleteIcon);
-            deleteButton.classList.add('remove'); 
-            deleteButton.onclick = () => deleteTask(index); 
+            deleteButton.classList.add('remove');
+            deleteButton.onclick = () => deleteTask(index);
 
-            // Botão de edição
             const editButton = document.createElement('button');
             const editIcon = document.createElement('i');
             editIcon.classList.add('fas', 'fa-edit');
             editButton.appendChild(editIcon);
             editButton.classList.add('edit');
             editButton.onclick = () => editTask(index);
-            
+
             li.appendChild(taskTextContainer);
             li.appendChild(completeButton);
             li.appendChild(editButton);
             li.appendChild(deleteButton);
         }
+
         taskList.appendChild(li);
     });
 }
 
+
 function editTask(index) {
+    document.getElementById('loadingSpinner').style.display = 'flex';
     editingIndex = index;
-    loadTasks();
+
+
+    setTimeout(() => {
+        loadTasks();
+        document.getElementById('loadingSpinner').style.display = 'none';
+    }, 400); 
 }
 
+
 function saveTask(index, newText) {
+    document.getElementById('loadingSpinner').style.display = 'flex'; 
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     if (newText.trim() !== '') {
         tasks[index].text = newText;
     }
-    editingIndex = null; // Limpar o modo de edição
+    editingIndex = null;
+
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    loadTasks(); // Recarregar as tarefas
+
+    setTimeout(() => {
+        loadTasks();
+        document.getElementById('loadingSpinner').style.display = 'none'; 
+    }, 500);
 }
 
+
+
 function addTask() {
+
+    document.getElementById('loadingSpinner').style.display = 'flex';
+
     const taskInput = document.getElementById('taskInput');
     const taskText = taskInput.value.trim();
 
@@ -96,8 +113,8 @@ function addTask() {
         
         if (editingIndex !== null) {
             tasks[editingIndex].text = taskText;
-            editingIndex = null;  // Limpar a variável de edição
-            document.querySelector('.add-task-button').textContent = 'Adicionar'; // Voltar ao texto original do botão
+            editingIndex = null;
+            document.querySelector('.add-task-button').textContent = 'Adicionar';
         } else {
             const newTask = {
                 text: taskText,
@@ -106,24 +123,43 @@ function addTask() {
             tasks.push(newTask);
         }
 
+
         localStorage.setItem('tasks', JSON.stringify(tasks));
-        taskInput.value = ''; // Limpar o campo de input
-        loadTasks(); // Recarregar a lista de tarefas
+        taskInput.value = ''; 
+
+        setTimeout(() => {
+            loadTasks();
+            document.getElementById('loadingSpinner').style.display = 'none';
+        }, 500);
     }
 }
 
+
 function deleteTask(index) {
+
+    document.getElementById('loadingSpinner').style.display = 'flex';
+
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    tasks.splice(index, 1); 
+    tasks.splice(index, 1);
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    loadTasks();
+
+    setTimeout(() => {
+        loadTasks();
+        document.getElementById('loadingSpinner').style.display = 'none'; 
+    }, 500);
 }
+
 
 function toggleCompletion(index) {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks[index].completed = !tasks[index].completed;
     localStorage.setItem('tasks', JSON.stringify(tasks));
     loadTasks();
+
+    setTimeout(() => {
+        loadTasks();
+        document.getElementById('loadingSpinner').style.display = 'none'; 
+    }, 500);
 }
 
 document.getElementById('taskInput').addEventListener('keydown', function(event) {
