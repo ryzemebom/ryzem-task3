@@ -151,7 +151,6 @@ button.edit:hover {
     background-color: #0056b3;
 }
 
-/* CSS para o campo de edição */
 input.edit-input {
     width: 80%;
     padding: 10px;
@@ -188,8 +187,43 @@ button.save:focus {
 li button {
     display: inline-block;
 }
+.loading-spinner {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    z-index: 9999;
+    flex-direction: column;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+    
+    text-align: center;
+}
 
-/* Responsividade para dispositivos móveis */
+.loading-spinner i {
+    font-size: 50px;
+    margin-bottom: 10px;
+    animation: spin 1.5s infinite linear;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner span {
+    font-size: 18px;
+    opacity: 0.8;
+    letter-spacing: 1px;
+}
+
 @media (max-width: 600px) {
     .container {
         width: 90%;
@@ -213,5 +247,32 @@ li button {
         background-color: #73cf767d; 
         transition: background-color 0.3s ease;
         border-radius: 20px;
+    }
+
+    input.edit-input {
+        width: 80%;
+        padding: 10px;
+        margin-bottom: 10px;
+        border-radius: 8px;
+        border: 1,7px solid #040404;
+        font-size: 15pt;
+        margin-right: 10px;
+        display: inline-block;
+    }
+
+    button.save {
+        width: 30%;
+    align-items: center;
+    padding: 12px;
+    margin: 2px;
+    height: 7%;
+        background-color: #0923a5;
+        color: white;
+        border: none;
+        border-radius: 8px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
+        margin-top: 10px;
     }
 }
