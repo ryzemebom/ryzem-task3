@@ -21,7 +21,6 @@ function loadTasks() {
 
             li.appendChild(editInput);
 
-
             const saveButton = document.createElement('button');
             saveButton.classList.add('save');
             const updateIcon = document.createElement('i');
@@ -29,7 +28,6 @@ function loadTasks() {
             saveButton.appendChild(updateIcon); 
             saveButton.onclick = () => saveTask(index, editInput.value);
             li.appendChild(saveButton);
-
         } else {
             const taskTextContainer = document.createElement('div');
             taskTextContainer.classList.add('task-text');
@@ -70,18 +68,15 @@ function loadTasks() {
     });
 }
 
-
 function editTask(index) {
     document.getElementById('loadingSpinner').style.display = 'flex';
     editingIndex = index;
-
 
     setTimeout(() => {
         loadTasks();
         document.getElementById('loadingSpinner').style.display = 'none';
     }, 400); 
 }
-
 
 function saveTask(index, newText) {
     document.getElementById('loadingSpinner').style.display = 'flex'; 
@@ -99,16 +94,13 @@ function saveTask(index, newText) {
     }, 500);
 }
 
-
-
 function addTask() {
-
-    document.getElementById('loadingSpinner').style.display = 'flex';
-
     const taskInput = document.getElementById('taskInput');
     const taskText = taskInput.value.trim();
 
     if (taskText !== '') {
+        document.getElementById('loadingSpinner').style.display = 'flex'; // Mostrar o spinner ao adicionar a tarefa
+
         const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
         
         if (editingIndex !== null) {
@@ -123,20 +115,17 @@ function addTask() {
             tasks.push(newTask);
         }
 
-
         localStorage.setItem('tasks', JSON.stringify(tasks));
-        taskInput.value = ''; 
+        taskInput.value = ''; // Limpa o campo de input
 
         setTimeout(() => {
             loadTasks();
-            document.getElementById('loadingSpinner').style.display = 'none';
+            document.getElementById('loadingSpinner').style.display = 'none'; // Esconde o spinner
         }, 500);
     }
 }
 
-
 function deleteTask(index) {
-
     document.getElementById('loadingSpinner').style.display = 'flex';
 
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
@@ -149,13 +138,11 @@ function deleteTask(index) {
     }, 500);
 }
 
-
 function toggleCompletion(index) {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks[index].completed = !tasks[index].completed;
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    loadTasks();
-
+    
     setTimeout(() => {
         loadTasks();
         document.getElementById('loadingSpinner').style.display = 'none'; 
