@@ -7,32 +7,34 @@ function loadTasks() {
 
     tasks.forEach((task, index) => {
         const li = document.createElement('li');
-        
+
         if (editingIndex === index) {
             const editTextArea = document.createElement('textarea');
-            editTextArea.value = task.text;
+            editTextArea.value = task.text; // Aqui, as quebras de linha (\n) já são preservadas
             editTextArea.classList.add('edit-input');
             editTextArea.focus();
             editTextArea.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' && event.shiftKey) { 
+                if (event.key === 'Enter' && event.shiftKey) {
                     event.preventDefault();
                     saveTask(index, editTextArea.value);
                 }
             });
-            
+
             li.appendChild(editTextArea);
 
             const saveButton = document.createElement('button');
             saveButton.classList.add('save');
             const updateIcon = document.createElement('i');
             updateIcon.classList.add('fas', 'fa-sync-alt');
-            saveButton.appendChild(updateIcon); 
+            saveButton.appendChild(updateIcon);
             saveButton.onclick = () => saveTask(index, editTextArea.value);
             li.appendChild(saveButton);
         } else {
             const taskTextContainer = document.createElement('div');
             taskTextContainer.classList.add('task-text');
-            taskTextContainer.textContent = task.text;
+            
+            // Substituir as quebras de linha por <br> para exibir corretamente no HTML
+            taskTextContainer.innerHTML = task.text.replace(/\n/g, '<br>'); 
 
             if (task.completed) {
                 li.classList.add('completed');
@@ -69,6 +71,7 @@ function loadTasks() {
     });
 }
 
+
 function editTask(index) {
     document.getElementById('loadingSpinner').style.display = 'flex';
     editingIndex = index;
@@ -95,6 +98,7 @@ function saveTask(index, newText) {
         document.getElementById('loadingSpinner').style.display = 'none'; 
     }, 500);
 }
+
 
 function addTask() {
     const taskInput = document.getElementById('taskInput');
@@ -141,13 +145,16 @@ function deleteTask(index) {
 }
 
 function toggleCompletion(index) {
+    document.getElementById('loadingSpinner').style.display = 'flex';
+
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     tasks[index].completed = !tasks[index].completed;
+
     localStorage.setItem('tasks', JSON.stringify(tasks));
-    
+
     setTimeout(() => {
         loadTasks();
-        document.getElementById('loadingSpinner').style.display = 'none'; 
+        document.getElementById('loadingSpinner').style.display = 'none';   
     }, 500);
 }
 
