@@ -9,24 +9,25 @@ function loadTasks() {
         const li = document.createElement('li');
         
         if (editingIndex === index) {
-            const editInput = document.createElement('input');
-            editInput.value = task.text;
-            editInput.classList.add('edit-input');
-            editInput.focus();
-            editInput.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter') {
-                    saveTask(index, editInput.value);
+            const editTextArea = document.createElement('textarea');
+            editTextArea.value = task.text;
+            editTextArea.classList.add('edit-input');
+            editTextArea.focus();
+            editTextArea.addEventListener('keydown', (event) => {
+                if (event.key === 'Enter' && !event.shiftKey) {
+                    event.preventDefault();
+                    saveTask(index, editTextArea.value);
                 }
             });
 
-            li.appendChild(editInput);
+            li.appendChild(editTextArea);
 
             const saveButton = document.createElement('button');
             saveButton.classList.add('save');
             const updateIcon = document.createElement('i');
             updateIcon.classList.add('fas', 'fa-sync-alt');
             saveButton.appendChild(updateIcon); 
-            saveButton.onclick = () => saveTask(index, editInput.value);
+            saveButton.onclick = () => saveTask(index, editTextArea.value);
             li.appendChild(saveButton);
         } else {
             const taskTextContainer = document.createElement('div');
@@ -75,8 +76,9 @@ function editTask(index) {
     setTimeout(() => {
         loadTasks();
         document.getElementById('loadingSpinner').style.display = 'none';
-    }, 400); 
+    }, 400);
 }
+
 
 function saveTask(index, newText) {
     document.getElementById('loadingSpinner').style.display = 'flex'; 
