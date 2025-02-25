@@ -94,10 +94,10 @@ li.completed {
     padding: 15px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     color: #000000;
-    background-color: #d4f7d0;
+    background-color: #a5f79c;
     transition: background-color 0.3s ease, box-shadow 0.3s ease;
     border-radius: 10px;
-    border: 1px solid #90e090;
+    border: 1px solid #79aa79;
     box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1); 
 }
 
