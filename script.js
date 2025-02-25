@@ -14,12 +14,12 @@ function loadTasks() {
             editTextArea.classList.add('edit-input');
             editTextArea.focus();
             editTextArea.addEventListener('keydown', (event) => {
-                if (event.key === 'Enter' && !event.shiftKey) {
+                if (event.key === 'Enter' && event.shiftKey) { 
                     event.preventDefault();
                     saveTask(index, editTextArea.value);
                 }
             });
-
+            
             li.appendChild(editTextArea);
 
             const saveButton = document.createElement('button');
