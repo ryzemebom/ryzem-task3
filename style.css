@@ -100,9 +100,16 @@ li.completed {
     border: 1px solid #79aa79;
     box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1); 
 }
-
 li:last-child {
     border-bottom: 4px solid #ddd; 
+
+}
+
+
+li.completed:last-child {
+    border-bottom: 4px solid #ddd; 
+    border: 1px solid #79aa79;
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1); 
 }
 
 
