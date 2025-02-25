@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     background-color: #6d6d6d;
     display: flex;
     justify-content: center;
@@ -23,7 +23,7 @@ body {
     align-items: center;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
     width: 36%;
-    max-height: 500px;
+    max-height: 550px;
     text-align: center;
 }
 
@@ -80,8 +80,29 @@ li {
     font-size: 15pt;
     padding: 15px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    transition: background-color 0.3s ease;
-    border-radius: 20px;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    margin-bottom: 15px; 
+    background-color: #f9f9f9;  
+    border: 1px solid #ddd; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); 
+}
+
+li.completed {
+    width: 100%;
+    font-size: 15pt;
+    padding: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: #000000;
+    background-color: #d4f7d0;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 10px;
+    border: 1px solid #90e090;
+    box-shadow: 0 8px 4px rgba(0, 0, 0, 0.1); 
+}
+
+li:last-child {
+    border-bottom: 4px solid #ddd; 
 }
 
 
@@ -147,17 +168,6 @@ button.remove:focus, button.complete:focus {
     outline: none;
 }
 
-li.completed {
-    width: 100%;
-    font-size: 15pt;
-    padding: 15px;
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    color: #000000;
-    width: auto;
-    background-color: #73cf767d; 
-    transition: background-color 0.3s ease;
-    border-radius: 20px;
-}
 
 button.edit {
     width: 20%;
@@ -272,7 +282,8 @@ li button {
     }
 
     button.complete, button.remove, button.edit {
-        width: 30%;
+        width: 22%;
+        height: 6%;
     }
 
     li.completed {
