@@ -55,7 +55,7 @@ button.add-task-button {
     width: 50%;
     padding: 13px;
     margin: 10px;
-    background-color: #04810a;
+    background-color: #2e77bf;
     color: white;
     border: none;
     border-radius: 8px;
@@ -66,8 +66,9 @@ button.add-task-button {
 }
 
 button.add-task-button:hover {
-    background-color: #288a34;
+    background-color: #6fa0d1;
 }
+
 
 ul {
     list-style-type: none;
