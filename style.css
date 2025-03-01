@@ -368,10 +368,10 @@ li button {
 }
 
 button.theme-toggle {
-    width: 50%;
+    width: 30%;
     padding: 13px;
     margin: 10px;
-    background-color: #2e77bf;
+    background-color: #cc0404dd;
     color: white;
     border: none;
     border-radius: 8px;
@@ -382,7 +382,7 @@ button.theme-toggle {
 }
 
 button.theme-toggle:hover {
-    background-color: #1e6797;
+    background-color: #871515;
 }
 
 button.theme-toggle:focus {
