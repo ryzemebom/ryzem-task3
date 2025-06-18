@@ -480,3 +480,20 @@ button.theme-toggle:hover {
 button.theme-toggle:focus {
     outline: none;
 }
+
+
+.logout-button {
+    padding: 10px 20px;
+    background-color: #971313;
+    color: white;
+    border: none;
+    width: 80%;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.logout-button:hover {
+    background-color: #093a6e;
+}

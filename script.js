@@ -1,5 +1,15 @@
 let editingIndex = null;
 
+window.onload = function() {
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    if (!usuarioLogado) {
+        window.location.href = 'login.html';
+    } else {
+        loadTasks();
+    }
+}
+
+
 function loadTasks() {
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     const taskList = document.getElementById('taskList');
@@ -199,4 +209,11 @@ document.getElementById('taskInput').addEventListener('keydown', function(event)
 
 window.onload = loadTasks;
 
-
+window.onload = function() {
+    const usuarioLogado = localStorage.getItem('usuarioLogado');
+    if (!usuarioLogado) {
+        window.location.href = 'login.html';
+    } else {
+        loadTasks();
+    }
+};
