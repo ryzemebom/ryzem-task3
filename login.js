@@ -7,6 +7,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
     const usuariosCadastrados = [
         { usuario: 'arthur', senha: 'swam198400' },
         { usuario: 'wagner', senha: 'b0opvrd2@' },
+        { usuario: 'Arthur', senha: 'swam198400' },
         { usuario: 'bernarndo', senha: 'berd123' }
     ];
 
