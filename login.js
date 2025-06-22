@@ -15,7 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuarioEncontrado) {
         localStorage.setItem('usuarioLogado', usuarioEncontrado.usuario);
-        window.location.href = 'index1.html';
+        window.location.href = 'inde11111x1.html';
     } else {
     }
 });
@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuario === usuarioValido && senha === senhaValida) {
         erroLogin.style.display = 'none';
-        window.location.href = 'index1.html'; // Redireciona para a página principal
+        window.location.href = 'ind111ex1.html'; // Redireciona para a página principal
     } else {
         erroLogin.style.display = 'block';
     }
@@ -59,7 +59,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuario === usuarioValido && senha === senhaValida) {
         localStorage.setItem('usuarioLogado', usuario);
-        window.location.href = 'index1.html';
+        window.location.href = 'inde111x1.html';
     } else {
         erroLogin.style.display = 'block';
     }
