@@ -15,7 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuarioEncontrado) {
         localStorage.setItem('usuarioLogado', usuarioEncontrado.usuario);
-        window.location.href = 'tarefas.html';
+        window.location.href = 'index.html';
     } else {
     }
 });
@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuario === usuarioValido && senha === senhaValida) {
         erroLogin.style.display = 'none';
-        window.location.href = 'tarefas.html'; // Redireciona para a página principal
+        window.location.href = 'index.html'; // Redireciona para a página principal
     } else {
         erroLogin.style.display = 'block';
     }
@@ -59,7 +59,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuario === usuarioValido && senha === senhaValida) {
         localStorage.setItem('usuarioLogado', usuario);
-        window.location.href = 'tarefas.html';
+        window.location.href = 'index.html';
     } else {
         erroLogin.style.display = 'block';
     }
