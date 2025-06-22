@@ -32,7 +32,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuario === usuarioValido && senha === senhaValida) {
         erroLogin.style.display = 'none';
-        window.location.href = 'index.html'; // Redireciona para a página principal
+        window.location.href = 'index1.html'; // Redireciona para a página principal
     } else {
         erroLogin.style.display = 'block';
     }
