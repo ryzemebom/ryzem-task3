@@ -15,7 +15,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuarioEncontrado) {
         localStorage.setItem('usuarioLogado', usuarioEncontrado.usuario);
-        window.location.href = 'index.html';
+        window.location.href = 'index1.html';
     } else {
     }
 });
