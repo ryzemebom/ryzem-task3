@@ -59,7 +59,7 @@ document.getElementById('loginForm').addEventListener('submit', function(e) {
 
     if (usuario === usuarioValido && senha === senhaValida) {
         localStorage.setItem('usuarioLogado', usuario);
-        window.location.href = 'index.html';
+        window.location.href = 'index1.html';
     } else {
         erroLogin.style.display = 'block';
     }
