@@ -1,13 +1,6 @@
 let editingIndex = null;
 
-window.onload = function() {
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-    if (!usuarioLogado) {
-        window.location.href = 'login.html';
-    } else {
-        loadTasks();
-    }
-}
+
 
 
 function loadTasks() {
@@ -209,11 +202,4 @@ document.getElementById('taskInput').addEventListener('keydown', function(event)
 
 window.onload = loadTasks;
 
-window.onload = function() {
-    const usuarioLogado = localStorage.getItem('usuarioLogado');
-    if (!usuarioLogado) {
-        window.location.href = 'login.html';
-    } else {
-        loadTasks();
-    }
-};
+
